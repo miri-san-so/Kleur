@@ -172,4 +172,7 @@ img {
     text-overflow: ellipsis;
     word-wrap: break-word;
   }
+  .tag > p{
+    font-size: 1em;
+  }
 }
