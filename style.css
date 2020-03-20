@@ -139,6 +139,20 @@ img {
   border-radius: 15px; 
   color:white; 
   width:50%;
+  text-align: center;
+}
+
+#fulljs:focus{
+  outline: none;
+}
+#minjs:focus{
+  outline: none;
+}
+
+#fulljs:hover, #minjs:hover{
+    outline: none;
+    background: white;
+    color: black;
 }
 
 @media only screen and (max-width: 768px) {
