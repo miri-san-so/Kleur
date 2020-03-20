@@ -134,7 +134,7 @@ class Kleur {
     let max = Math.max(rr, rg, rb);
     let min = Math.min(rr, rg, rb);
 
-    if (arr[0] == arr[1] && arr[1]== arr[2] &&  arr[2]== arr[0]) {
+    if (arr[0] == arr[1] && arr[1] == arr[2] && arr[2] == arr[0]) {
       return [0, 0, Math.round(max * 100)];
     }
 
@@ -164,13 +164,26 @@ class Kleur {
     ];
   }
 
-  setup(can, x, img_obj) {
+  getPixelArray(img_obj) {
+    img_obj.style.display = "none";
+    let can = document.querySelector("body").appendChild(document.createElement("canvas"));
+    let x = can.getContext("2d");
+    can.style = "display: none;";
     x.canvas.width = img_obj.width;
     x.canvas.height = img_obj.height;
     x.drawImage(imageObj, 0, 0, img_obj.width, img_obj.height);
     var imgData = x.getImageData(0, 0, can.width, can.height);
     var data = imgData.data;
     return data;
+  }
+
+  init(imgLink) {
+    let imgObj = document.createElement("img");
+    imgObj.src = imgLink;
+    imgObj.id = "sad"
+    imgObj.crossOrigin = "Anonymous";
+    imgObj.style = "display: none;";
+    return imgObj;
   }
 
   generateColorArray(color_arr) {
