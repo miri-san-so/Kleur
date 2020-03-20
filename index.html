@@ -17,7 +17,12 @@
         <div class="roof"><p>github/kleur.js</p></div>
       </a>
       <div class="hero"><p>Kleur</p></div>
-      <div class="tag"><p>Kleur.js | 7.87Kb • Kleur_min.js | 3.29Kb</p></div>
+      <div class="tag">
+        <p>Kleur.js | 7.87Kb • Kleur_min.js | 3.29Kb</p>
+        <hr style="width: 30%; margin:2% 35%; background-color:white; height: 2px;">
+        <input type="text" value="https://cdn.jsdelivr.net/gh/miri-san-so/Kleur/Kleur.js" id="fulljs">
+        <input type="text" value="https://cdn.jsdelivr.net/gh/miri-san-so/Kleur/Kleur_min.js" id="minjs">
+      </div>
       <svg
         class="down"
         width="62"
@@ -81,11 +86,24 @@ imageObj.onload = function(e) {
       </div>
     </div>
     <script>
+      let fulljs = document.getElementById("fulljs");
+      let minjs = document.getElementById("minjs");
       var canvas = document.getElementById("viewport");
       var ctx = canvas.getContext("2d");
       var imageObj = document.getElementById("img");
       imageObj.src = "img/four.jpg";
 
+      fulljs.addEventListener("click", () => {
+          fulljs.select();
+          document.execCommand("copy");
+          alert("copied to clipboard")
+      })
+      minjs.addEventListener("click", () => {
+          minjs.select();
+          document.execCommand("copy");
+          alert("copied to clipboard")
+      })
+      
       imageObj.onload = function(e) {
         // Create Object of Kleur
         Kleur = new Kleur();
