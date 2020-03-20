@@ -164,12 +164,11 @@ class Kleur {
     ];
   }
 
-  setup(img_obj) {
-    ctx.canvas.width = img_obj.width;
-    ctx.canvas.height = img_obj.height;
-
-    ctx.drawImage(imageObj, 0, 0, img_obj.width, img_obj.height);
-    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  setup(x, img_obj) {
+    x.canvas.width = img_obj.width;
+    x.canvas.height = img_obj.height;
+    x.drawImage(imageObj, 0, 0, img_obj.width, img_obj.height);
+    var imgData = x.getImageData(0, 0, canvas.width, canvas.height);
     var data = imgData.data;
     return data;
   }
@@ -241,7 +240,7 @@ class Kleur {
 
   getSwatch(color_arr) {
     let colors = [];
-    for (let i = 0; i < color_arr.length; i++) {
+    for (i = 0; i < color_arr.length; i++) {
       if (Math.abs(color_arr[i].lab[1] - color_arr[i].lab[2]) > 20) {
         light.push(color_arr[i]);
       }
