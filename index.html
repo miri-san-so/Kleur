@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kleur</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./Kleur.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+  </head>
+  <body>
+    <div class="alrt">
+      Copied to clipboard
+    </div>
+    <div class="page-1">
+      <div class="left">
+        <div class="info-card">
+          <h4>Detailed</h4>
+          <input
+            type="text"
+            value="https://cdn.statically.io/gh/miri-san-so/Kleur/bdb1fd55/Kleur.js"
+            id="fulljs"
+          />
+        </div>
+        <div class="info-card">
+          <h4>Minified</h4>
+          <input
+            type="text"
+            value="https://cdn.statically.io/gh/miri-san-so/Kleur/bdb1fd55/Kleur_min.js"
+            id="minjs"
+          />
+        </div>
+        <div class="info-card">
+          <h4>Github</h4>
+          <a href="https://github.com/miri-san-so/Kleur">miri-san-so/Kleur</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="mid">
+          <div class="hero">
+            <h3>Kleur</h3>
+            <p>Work with colors in image.</p>
+          </div>
+          <div class="code">
+            <pre class="prettyprint lang-js"><code>
+// Create Object
+Kleur = new Kleur();
+
+// Returns the image tag
+imageObj = Kleur.init(imgLink);
+
+// After the image is Loaded
+imageObj.onload = function(e) {
+  let PixelArr = Kleur.getPixelArray(imageObj);
+  let PixelColor = Kleur.generateColorArray(PixelArr);
+}
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-2">
+      <h1>Music Player Example</h1>
+      <a href="https://codepen.io/mirisama/pen/YzXjxew"
+        >Get the code on Codepen</a
+      >
+      <img src="./img/card (1).png" width="50%" height="50%" alt="" />
+    </div>
+
+    <script>
+      alrt = document.querySelector(".alrt");
+      fulljs = document.getElementById("fulljs");
+      minjs = document.getElementById("minjs");
+
+      fulljs.addEventListener("click", () => {
+        fulljs.select();
+        document.execCommand("copy");
+        alrt.style.opacity = "1";
+        setTimeout(() => {
+          alrt.style.opacity = "0";
+        }, 1000);
+      });
+
+      minjs.addEventListener("click", () => {
+        minjs.select();
+        document.execCommand("copy");
+        alrt.style.opacity = "1";
+        setTimeout(() => {
+          alrt.style.opacity = "0";
+        }, 1000);
+      
+      });
+    </script>
+  </body>
+</html>
