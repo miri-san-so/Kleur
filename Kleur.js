@@ -127,12 +127,16 @@ class Kleur {
 
   // RGB to hsv
   rgb_to_hsv(arr) {
-    let rr = arr[0] / 255;
-    let rg = arr[1] / 255;
-    let rb = arr[2] / 255;
+    let rr = arr[0] / 255; // 0.39
+    let rg = arr[1] / 255; // 0.39
+    let rb = arr[2] / 255; // 0.39
 
     let max = Math.max(rr, rg, rb);
     let min = Math.min(rr, rg, rb);
+
+    if (arr[0] == arr[1] && arr[1]== arr[2] &&  arr[2]== arr[0]) {
+      return [0, 0, Math.round(max * 100)];
+    }
 
     let delta = max - min;
 
@@ -236,6 +240,16 @@ class Kleur {
   }
 
   getSwatch(color_arr) {
+    let colors = [];
+    for (i = 0; i < color_arr.length; i++) {
+      if (Math.abs(color_arr[i].lab[1] - color_arr[i].lab[2]) > 20) {
+        light.push(color_arr[i]);
+      }
+    }
+    return colors;
+  }
+
+  getRandomSwatch(color_arr) {
     let rand = [];
     for (let i = 0; i < 20; i++) {
       let ra = color_arr[Math.floor(Math.random() * color_arr.length)];
@@ -263,5 +277,29 @@ class Kleur {
       }
     });
     return dark;
+  }
+
+  getDominant(color_arr) {
+    return color_arr[0];
+  }
+
+  makeDarker(hex) {
+    let rgb = this.hexToRgb(hex);
+    let newHex = this.rgbToHex(
+      Math.round(rgb[0] / 4),
+      Math.round(rgb[1] / 4),
+      Math.round(rgb[2] / 4)
+    );
+    return newHex;
+  }
+
+  getVIbrant(color_arr, range = 30) {
+    let vib = [];
+    for (let i = 0; i < color_arr.length; i++) {
+      if (Math.abs(color_arr[i].lab[1] - color_arr[i].lab[2]) > range) {
+        vib.push(color_arr[i]);
+      }
+    }
+    return vib;
   }
 }
