@@ -109,7 +109,7 @@ imageObj.onload = function(e) {
         Kleur = new Kleur();
 
         // Pass the image to setup the swatches
-        let colorArr = Kleur.setup(imageObj);
+        let colorArr = Kleur.setup(ctx, imageObj);
 
         // get array of pixels and their values
         let array_of_pixels = Kleur.generateColorArray(colorArr);
