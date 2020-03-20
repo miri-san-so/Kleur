@@ -1,204 +1,162 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #0c0c0c;
+  background-color: #000000;
 }
 
-.first {
+.page-1 {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+
+}
+
+.left {
+  flex: 1;
+  display: flex;
+
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.roof {
-  width: 100%;
-  height: 8vh;
-  background-color: white;
-  color: black;
-  font-family: "Inter";
-  text-align: center;
-  line-height: 8vh;
+.info-card {
+  width: 50%;
+  height: fit-content;
+  margin-bottom: 10%;
 }
-a {
+
+.info-card:nth-child(3){
+  margin-bottom: 0;
+}
+
+.info-card > h4 {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #9a9a9a;
+  margin-bottom: 4%;
+  font-family: "Montserrat", sans-serif;
+}
+.info-card > input {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: white;
+  width: 80%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 1px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.info-card > a {
+  font-size: small;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
   text-decoration: none;
-}
-
-.hero {
-  width: 100%;
-  height: 70vh;
-  text-align: center;
-}
-
-.hero > p {
-  font-size: 20em;
-  color: white;
-  font-family: "Poppins";
-  line-height: 70vh;
-}
-
-.tag {
-  width: 100%;
-  text-align: center;
-}
-
-.tag > p {
-  font-family: "Inter";
-  font-size: 1.5em;
   color: white;
 }
 
-.down {
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-top: 2%;
-}
-
-.second {
-  width: 100%;
-  height: 100vh;
+.right {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-canvas {
-  transform-origin: center;
-  width: 50%;
-  height: 50%;
-}
-
-.color1,
-.color2,
-.color3,
-.color4,
-.color5 {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-}
-
-.move {
-  margin-top: 5%;
+.mid{
   display: flex;
-  right: 0;
-  top: 0;
+  flex-direction: column;
+  height: 45%;
   justify-content: space-between;
 }
 
-img {
-  display: none;
-}
-
-.third {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.hero{
   color: white;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
-.how {
-  font-family: "Poppins";
-  color: white;
-  font-size: 5em;
-  margin-bottom: 5%;
+.hero > h3{
+  font-size: 1.3rem;
 }
 
-.code {
-  width: 50%;
+.hero > p {
+  font-weight: 300;
 }
 
-.code > p {
-  font-family: "Inter";
-  font-size: 1.5rem;
-}
-
-.prettyprint {
-  border-radius: 10px;
-  line-height: 2rem;
-  padding: 2%;
-}
-
-.prettyprinted {
+.prettyprinted{
   background-color: transparent !important;
 }
 
-#fulljs, #minjs{
-  font-size: 1rem;
-  margin-top: 1%;
-  padding: 1% 3%; 
-  font-family: 'Inter'; 
-  background-color: transparent; 
-  border: 1px solid white; 
-  border-radius: 15px; 
-  color:white; 
-  width:50%;
+
+.page-2{
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.page-2 > a{
+  justify-self: flex-start;
+  font-family: 'consolas';
+  color: white;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.alrt{
+  width: 250px;
+  height: 80px;
+  background-color: rgb(24, 24, 24);
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 100 ease;
   text-align: center;
+  line-height: 80px;
+  color: white;
+  font-family: 'Montserrat';
+  opacity: 0;
 }
 
-#fulljs:focus{
-  outline: none;
-}
-#minjs:focus{
-  outline: none;
+.page-2 > h1, p{
+  font-family: 'Montserrat', sans-serif;
 }
 
-#fulljs:hover, #minjs:hover{
-    outline: none;
-    background: white;
-    color: black;
+input:hover{
+  border: 1px solid gray;
 }
 
-@media only screen and (max-width: 768px) {
-  .hero > p {
-    font-size: 7rem;
+@media (max-width:700px){
+  .page-1{
+    flex-direction: column-reverse;
+  }
+  .right{
+    padding: 0%;
   }
 
-  .down {
-    margin-top: 15%;
+  .mid > .hero{
+    margin-bottom: 15%;
   }
 
-  .canvas {
-    width: 100%;
-    height: 100%;
+  .hero{
+    padding-left: 5%;
   }
 
-  .color1,
-  .color2,
-  .color3,
-  .color4,
-  .color5 {
-    width: 40px;
-    height: 40px;
+  .code{
+    padding-left: 5%;
   }
 
-  .third > .how {
-    line-height: 105%;
-  }
-
-  .third {
-    justify-content: start;
-    align-items: flex-start;
-    width: 100%;
-    padding: 5px;
-  }
-
-  .code {
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  pre {
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  .tag > p{
-    font-size: 1em;
-  }
 }
