@@ -241,7 +241,7 @@ class Kleur {
 
   getSwatch(color_arr) {
     let colors = [];
-    for (i = 0; i < color_arr.length; i++) {
+    for (let i = 0; i < color_arr.length; i++) {
       if (Math.abs(color_arr[i].lab[1] - color_arr[i].lab[2]) > 20) {
         light.push(color_arr[i]);
       }
